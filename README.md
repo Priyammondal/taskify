@@ -1,46 +1,110 @@
-# Getting Started with Create React App
+** Type Live Demo **
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://taskify123.netlify.app/
 
-## Available Scripts
+// Typescript basics
+let occupation: any; // not recommended to use any
 
-In the project directory, you can run:
+// if we don't know the type instead "any" use "unknown"
+let department: unknown;
 
-### `npm start`
+let name: string;
+let age: number | string; // age could be number or it could be string
+let isStudent: boolean;
+let hobbies: string[];
+let role: [number, string];
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+// assigning object, Type Aliases
+type PersonType = {
+  name: string;
+  age?: number; //age is optional
+};
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+let person: PersonType;
 
-### `npm test`
+// array of person objects
+let lotOfPersons: PersonType[];
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+// assigning function
+let printName: (name: string) => void; // void returns "undefined".
+let printage: (age: number) => never; // never doesn't return anything.
 
-### `npm run build`
+// assigning object, Interfaces
+interface PersonInterface {
+  name: string;
+  age?: number;
+}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+// Type Inheritance in Typescript
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+/* type X = {
+  a: string;
+  b: number;
+};
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+type Y = X & {
+  c: string;
+  d: boolean;
+};
 
-### `npm run eject`
+let y: Y = {
+  c: "priyam",
+  d: true,
+  a: "mondal",
+  b: 21,
+}; */
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+// Interface Inheritance in Typescript
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+/* interface car {
+  type: string;
+  wheels: number;
+}
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+interface maruti extends car {
+  name: string;
+}
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+let brezza: maruti = {
+  type: "suv",
+  wheels: 4,
+  name: "Maruti Suzuki Brezza",
+}; */
 
-## Learn More
+// Type inherits interface vice versa
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+// interface Car {
+//   type: string;
+//   wheels: number;
+// }
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+// type X = Car & {
+//   a: string;
+//   b: number;
+// };
+
+// let data: X = {
+//   type: "test",
+//   wheels: 4,
+//   a: "test",
+//   b: 4,
+// };
+
+// type X = {
+//   a: string;
+//   b: number;
+// };
+
+// interface Car extends X {
+//   type: string;
+//   wheels: number;
+// }
+
+// let test: Car = {
+//   type: "test",
+//   wheels: 4,
+//   a: "test",
+//   b: 4,
+// };
+
+// Typescript basics
